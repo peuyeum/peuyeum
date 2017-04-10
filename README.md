@@ -144,6 +144,6 @@ If your apps using redis to store TTL Token, please install it to.
 ##### URL Format :
  keyuri or tokenuri%controller filename%method inside Controller%paramater
 ##### Example :
- For web aplications : WEB%peta%home%2017
- For API : API%agenda%getList%5101
+ * For web aplications : WEB%peta%home%2017
+ * For API : API%agenda%getList%5101
 
