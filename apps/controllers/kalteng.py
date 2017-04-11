@@ -9,7 +9,7 @@ class Controller(object):
 	def home(self,uridt='null'):
 		provinsi = 'kalteng'
 		provloc = '113.913977,-2.2161048'
-		mapzoom = '8'
+		mapzoom = '6'
 		kabkotcord = [
 		'111.555839, -2.456964',
 		'112.737093, -2.098138',
