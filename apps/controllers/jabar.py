@@ -8,7 +8,7 @@ from apps.templates import batik
 class Controller(object):
 	def home(self,uridt='null'):
 		provinsi = 'jabar'
-		provloc = '107.543382, -6.919011'
+		provloc = '107.642704, -7.095541'
 		mapzoom = '9'
 		kabkotcord = [
 		'106.797564, -6.587579',
@@ -35,7 +35,7 @@ class Controller(object):
 		'108.715400, -6.860310',
 		'106.975437, -6.270206',
 		'106.852816, -6.392455',
-		'107.547988, -6.888430',
+		'107.541465,-6.884127',
 		'108.221763, -7.341521', #rf
 		'108.534659, -7.371715',
 		'107.268667, -6.759950'#88
