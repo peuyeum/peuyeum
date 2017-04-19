@@ -50,7 +50,7 @@ class Controller(object):
 		'110.820013, -7.555974',
 		'110.496440, -7.335682',
 		'110.462048, -7.250925',
-		'109.6394837, -6.8958555',
+		'109.617024, -7.045267',
 		'109.0822198, -6.8704842'
 		]
 		batik.provinsi(provinsi,listkabkot,provloc,mapzoom,kabkotcord)
