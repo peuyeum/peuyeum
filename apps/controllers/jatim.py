@@ -8,7 +8,7 @@ from apps.templates import batik
 class Controller(object):
 	def home(self,uridt='null'):
 		kabkotcord = [
-		'111.105904, -8.180052',
+		'111.167264,-8.129277',
 		'111.459364, -7.938566',
 		'111.592798, -8.157817',
 		'111.955060, -8.090436',
