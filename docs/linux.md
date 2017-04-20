@@ -19,3 +19,19 @@ Virtualenv adalah sebuah software (berbasis python) yang mana bertujuan untuk me
 - --Uwsgi
 
 Uwsgi adalah sebuah aplikasi yang digunakan untuk menggambarkan beberapa prosedur installation, menggunakan pip, pengelola python.
+
+- --Pymongo
+
+Pymongo adalah driver yang digunakan python untuk melakukan koneksi ke mongodb.
+
+- --Pycrypto
+
+Pycrypto adalah Sebuah Bahasa pemrograman yang digunakan untuk rancang bangun aplikasi yang dapat berbetuk File Secure.
+
+- --Redis
+
+Redis adalah Open Source yang digunakan untuk menyimpan struktur data pada memori, biasanya digunakan sebgaia database cache dan message broker.
+
+- --MySQL
+
+MySQL adalah database yang digunakan untuk menyimpan data pada pembuatan program.
