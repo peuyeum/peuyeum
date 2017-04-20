@@ -64,7 +64,7 @@ Bagaimana menginstal dan menjalankan program pada centos 6
 
  Instalasi:
 
-    # Yum groupinstall &quot;Development Tools&quot;
+    # Yum groupinstall "Development Tools"
     
     # Yum install python 
     
@@ -114,7 +114,7 @@ Anda kemudian akan disajikan dengan layar monitor MySQL:
 
         Nama lain mungkin merupakan merek dagang dari pemiliknya masing-masing.
 
-        Type &#39;help;&#39; or &#39;\ h&#39; for help. Ketik &#39;\ c&#39; to clear the current input statement.
+        Type 'help;' or '\ h' for help. Ketik '\ c' to clear the current input statement.
 
 -
   - Mysql > create database kelasc;
@@ -166,47 +166,47 @@ Anda kemudian akan disajikan dengan layar monitor MySQL:
   -config.py
   - Atur paramater dari server anda
 
-        &quot;&quot; &quot;
+        "" "
 
         ### Menu
 
-        Keyuri = &quot;URI&quot;
+        Keyuri = "URI"
 
-        Tokenuri = &quot;TKN&quot;
+        Tokenuri = "TKN"
 
         ### Database
 
-        Mongohost = &quot;localhost&quot;
+        Mongohost = "localhost"
 
         Mongoport = 27017
 
-        Mysqlhost = &quot;localhost&quot;
+        Mysqlhost = "localhost"
 
-        Mysqldb = &quot;kelasc&quot;
+        Mysqldb = "kelasc"
 
-        Mysqluser = &quot;root&quot;
+        Mysqluser = "root"
 
-        Mysqlpassword = &quot;your password&quot;
+        Mysqlpassword = "your password"
 
         ### Security module
 
-        Key = &quot;your key 16 char&quot;
+        Key = "your key 16 char"
 
-        Iv = &quot;your iv 16 char&quot;
+        Iv = "your iv 16 char"
 
-        Tokenurl = &quot;https://www.googleapis.com/oauth2/v3/tokeninfo?id\_token=&quot;
+        Tokenurl = "https://www.googleapis.com/oauth2/v3/tokeninfo?id\_token="
 
-        Iss = &quot;accounts.google.com&quot;
+        Iss = "accounts.google.com"
 
-        Aud = &quot;WEB\_CLIENT\_ID&quot;
+        Aud = "WEB\_CLIENT\_ID"
 
-        Domainacl = &quot;poltekpos.ac.id&quot;
+        Domainacl = "poltekpos.ac.id"
 
         Urltimeout = 3600
 
         ### mapserver
 
-        WMTS = &quot;http://peta.peuyeum.com/wmts/sampeu/ragi/{z}/{x}/{y}.png&quot;
+        WMTS = "http://peta.peuyeum.com/wmts/sampeu/ragi/{z}/{x}/{y}.png"
 
 - Terakhir , jalankan uwsgi di centos 6:
 
