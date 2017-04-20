@@ -98,7 +98,7 @@ Saat diminta, masukkan kata sandi root yang Anda tetapkan saat skrip mysql\_secu
 
 Anda kemudian akan disajikan dengan layar monitor MySQL:
 
-**--Selamat datang di monitor MySQL--.**
+**Selamat datang di monitor MySQL**
 
         Perintah diakhiri dengan; Atau \ g.
 
@@ -108,7 +108,7 @@ Anda kemudian akan disajikan dengan layar monitor MySQL:
 
         Hak Cipta (c) 2000, 2013, Oracle dan / atau afiliasinya. Seluruh hak cipta.
 
-**        Oracle**
+**Oracle**
 
         Oracle adalah merek dagang terdaftar dari Oracle Corporation dan / atau    afiliasinya.
 
@@ -133,7 +133,7 @@ Anda kemudian akan disajikan dengan layar monitor MySQL:
   - Kemudian, edit file peuyeum.ini. &lt;br&gt;
   - Untuk mengedit file pada baris perintah, Anda bisa menggunakan editor seperti vi.
 
-** # Vi peuyeum.ini **
+**# Vi peuyeum.ini**
 
         [Uwsgi]
 
