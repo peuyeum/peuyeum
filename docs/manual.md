@@ -117,4 +117,12 @@ def application(environ, start_response):
 	start_response('200 OK', [('Content-Type', 'text/html'),('Content-Length', str(len(respon)))])
 	return [respon]
 ~~~
+## Penjelasan
 
+~~~
+from cgi import parse_qs
+~~~
+
+source code  tersebut berfungsi untuk memanggil function parse_gs yang terdapat didalam module cgi<p>
+
+~~~
