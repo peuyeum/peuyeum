@@ -115,3 +115,25 @@ Anda kemudian akan disajikan dengan layar monitor MySQL:
 # Mysql -u root -p \*\*\*\*\*\* kelasc &lt;mysql.sql
 # Cd .. |
 | --- |
+
+-
+  - --Kemudian, edit file peuyeum.ini. &lt;br&gt;
+  - --Untuk mengedit file pada baris perintah, Anda bisa menggunakan editor seperti vi.
+
+| # Vi peuyeum.ini |
+| --- |
+
+        [Uwsgi]
+
+        Modul = peuyeum: aplikasi
+
+        Check-static = ./public
+
+| Master = benar
+Proses = 5
+Http = 0.0.0.0:8080
+#uid = peuyeum#socket = ../run/peuyeum.sock
+# Chown-socket = peuyeum: peuyeum
+# Chmod-socket = 660
+#vacuum = true |
+| --- |
