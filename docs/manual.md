@@ -170,3 +170,52 @@ start_response('200 OK', [('Content-Type', 'text/html'),('Content-Length', str(l
 Source code tersebut berfungsi untuk mengambil informasi dengan cara harus memanggil callable yang diterima dengan kode status HTTP dan setiap header yang ingin dikirim kembali. Misalnya pada source code di atas dikirimkan respons "200 OK" dan menyetel tajuk Content-Type ke teks/html<p>
 Selanjutnya yaitu berfungsi untuk mengembalikan nilai [respon].<p>
 
+## peuyeum.service
+~~~
+[Unit]
+Description=uWSGI instance to serve agenda
+
+[Service]
+ExecStartPre=-/usr/bin/bash -c 'mkdir -p /var/www/awangga/run/agenda; chown agenda:nginx /var/www/awangga/run/agenda'
+ExecStart=/usr/bin/bash -c 'cd /var/www/awangga/agenda/agenda; source peuyeumenv/bin/activate; uwsgi --ini peuyeum.ini'
+
+[Install]
+WantedBy=multi-user.target
+~~~
+
+### Penjelasan
+~~~
+[Unit]
+~~~
+
+Dimualai dengan source code bagian [unit], yang digunakan untuk menentukan metadata.
+
+~~~
+Description=uWSGI instance to serve agenda 
+~~~
+
+source code  tersebut berfungsi untuk menampung deskripsi layanan 
+
+~~~
+[Service]
+ExecStartPre=-/usr/bin/bash -c 'mkdir -p /var/www/awangga/run/agenda; chown agenda:nginx /var/www/awangga/run/agenda'
+~~~
+
+Berikutnya source code tersebut untuk membuat bagian [Service]. <br>
+Dengan menggunakan direktif ExecStartPre untuk mengatur potongan-potongan yang dibutuhkan untuk menjalankan server. <br>
+Selanjutnya memastikan direktori /run/uwsgi dibuat dan user dapat mengklaim kelompok Nginx sebagai pemilik grup.<br>
+Kedua mkdir dengan bendera p dan chown perintah kembali berhasil bahkan jika mereka sudah ada., dengan mendeklarasikan agenda
+
+~~~
+ExecStart=/usr/bin/bash -c 'cd /var/www/awangga/agenda/agenda; source peuyeumenv/bin/activate; uwsgi --ini peuyeum.ini'
+~~~
+
+Selanjutnya sourcode tersebut berfungsi untuk mendeklarasikan perintah mulai yang sebenarnya, ditentukan oleh direktif ExecStart, yang akan menunjuk ke executable uwsgi, dan akan melakukan running dalam mode "Agenda", yang memungkinkan untuk mengelola beberapa aplikasi yang menggunakan file yang ditemukan di cd/var/www/awangga/agenda/agenda;sourcepeuyeumenv/bin/activate. Dan selanjutnya  ditambahkan potongan-potongan yang diperlukan untuk Systemd untuk secara benar mengelola proses. 
+
+~~~
+[Install]
+WantedBy=multi-user.target
+~~~
+
+Selajutnya source code diatas merupakan proses terakhir yaitu menambahkan bagian [Install]. Hal ini memungkinkan kita untuk menentukan kapan layanan harus secara otomatis dimulai. Layanan tersebut terikat kepada sistem multi-user. Setiap kali sistem diatur untuk beberapa pengguna (kondisi operasi normal), layanan tersebut akan diaktifkan
+
