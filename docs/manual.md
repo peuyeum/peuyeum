@@ -59,3 +59,8 @@ chmod-socket = 660
 ~~~
 
 Selanjutnya source code tersebut berfungsi untuk merancang konfigurasi untuk digunakan dengan Nginx, dan juga akan mengubah penggunaan port jaringan dan menggunakan soket Unix sebagai gantinya. Ini lebih aman dan lebih cepat. soket akan dibuat dalam direktori saat ini jika kita menggunakan path relatif. Misalnya pada source code tersebut adalah ../run/peuyeum.sock.  selanjutnya mengubah hak akses untuk "660" sehingga Nginx dapat mengakses nya (untuk itu akan dimulai uWSGI dengan kelompok www-data yang menggunakan Nginx.<p> 
+~~~
+die-on-term = true
+~~~
+
+Source code tersebut maksudnya ditambahkan sebagai sebuah opsi sehingga uWSGI akan membunuh proses bukan reload yang terjadi, hal ini perlu karena akan terciptanya file Upstart untuk memulai aplikasi saat boot. Upstart dan uWSGI memiliki ide yang berbeda tentangyang sinyal SIGTERM harus lakukan terhadapsebuah aplikasi. Untuk memilah perbedaan ini sehingga proses dapat ditangani seperti yang diharapkan dengan Upstart.<p>
