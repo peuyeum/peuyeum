@@ -144,3 +144,49 @@ Http = 0.0.0.0:8080
 
 | # Cd lib# Vi config.py |
 | --- |
+
+-
+  - --py
+  - --Atur paramater dari server anda
+
+        &quot;&quot; &quot;
+
+        ### Menu
+
+        Keyuri = &quot;URI&quot;
+
+        Tokenuri = &quot;TKN&quot;
+
+        ### Database
+
+        Mongohost = &quot;lokal&quot;
+
+        Mongoport = 27017
+
+        Mysqlhost = &quot;localhost&quot;
+
+        Mysqldb = &quot;kelasc&quot;
+
+        Mysqluser = &quot;root&quot;
+
+        Mysqlpassword = &quot;kata sandi anda&quot;
+
+        ### Modul keamanan
+
+        Kunci = &quot;kunci Anda 16 char&quot;
+
+        Iv = &quot;your iv 16 char&quot;
+
+        Tokenurl = &quot;https://www.googleapis.com/oauth2/v3/tokeninfo?id\_token=&quot;
+
+        Iss = &quot;accounts.google.com&quot;
+
+        Aud = &quot;WEB\_CLIENT\_ID&quot;
+
+        Domainacl = &quot;poltekpos.ac.id&quot;
+
+        Urltimeout = 3600
+
+        ### mapserver
+
+        WMTS = &quot;http://peta.peuyeum.com/wmts/sampeu/ragi/{z}/{x}/{y}.png&quot;
