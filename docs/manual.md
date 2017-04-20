@@ -18,24 +18,27 @@ vacuum = true
 
 die-on-term = true
 ~~~
+
 ### Penjelasan
+
 ~~~
 [uwsgi]
 ~~~
 
-Code tersebut maksudnya adalaah menetapkan bagian yang disebut [uwsgi]. Bagian ini adalah di mana semua item konfigurasi kita akan hidup. yang akan dimulai dengan mengidentifikasi aplikasi kita.  uWSGI server perlu tahu di mana callable aplikasi tersebut.<p>
-uWSGI adalah open source, multiplatform, dan baris perintah software diimplementasikan dalam bahasa C sehingga Anda perlu kompiler C (seperti gcc atau dentang) dan header pengembangan Python dan dirancang dari bawah ke atas sebagai alat mandiri untuk mengembangkan stack penuh untuk menghasilkan atau membangun layanan hosting.<p>
+Code tersebut maksudnya adalaah menetapkan bagian yang disebut [uwsgi]. Bagian ini adalah di mana semua item konfigurasi kita akan hidup. yang akan dimulai dengan mengidentifikasi aplikasi kita.  uWSGI server perlu tahu di mana callable aplikasi tersebut.<br>
+uWSGI adalah open source, multiplatform, dan baris perintah software diimplementasikan dalam bahasa C sehingga Anda perlu kompiler C (seperti gcc atau dentang) dan header pengembangan Python dan dirancang dari bawah ke atas sebagai alat mandiri untuk mengembangkan stack penuh untuk menghasilkan atau membangun layanan hosting.
 
 ~~~
 module = peuyeum:application
 ~~~
 
-Selanjutnya  source code tersebut mengkonfigurasi uWSGI sehingga menangani identifikasi aplikasi kita dengan benar, dengan menunjukkan lingkungan virtual untuk aplikasi tersebut. Dengan menetapkan modul, agar dapat menunjukkan dengan tepat bagaimana cara untuk  dapat berinteraksi dengan aplikasi tersebut (dengan mengimpor "application" callable dari file peuyeum.py dalam direktori proyek). <p>
+Selanjutnya  source code tersebut mengkonfigurasi uWSGI sehingga menangani identifikasi aplikasi kita dengan benar, dengan menunjukkan lingkungan virtual untuk aplikasi tersebut. Dengan menetapkan modul, agar dapat menunjukkan dengan tepat bagaimana cara untuk  dapat berinteraksi dengan aplikasi tersebut (dengan mengimpor "application" callable dari file peuyeum.py dalam direktori proyek). 
+
 ~~~
 check-static = ./public
 ~~~
 
-Source code diatas dimaksudkan untuk memeriksa kebenaran dari berbagai kendala program dapat dianggap sebagai bentuk diperpanjang untuk  memeriksa jenis, hal  dilakukan secara otomatis pada waktu kompilasi, bersifat public<p>
+Source code diatas dimaksudkan untuk memeriksa kebenaran dari berbagai kendala program dapat dianggap sebagai bentuk diperpanjang untuk  memeriksa jenis, hal  dilakukan secara otomatis pada waktu kompilasi, bersifat public
 
 ~~~
 master = true
@@ -43,14 +46,14 @@ processes = 5
 ~~~
 
 sourcode diatas dimaksudkan dengan menciptakan sebuah proses master dengan 5 pekerja dari proses tersebut.<br>
-Selanjutnya maksud source code tersebut adalah menandai proses uwsgi awal sebagai master dan kemudian menelurkan sejumlah proses pekerja.<p>
+Selanjutnya maksud source code tersebut adalah menandai proses uwsgi awal sebagai master dan kemudian menelurkan sejumlah proses pekerja.
 
 ~~~
 #http = 127.0.0.1:8181
 uid = peuyeum
 ~~~
 
-Selanjtunya mengubah protokol yang menggunakan uWSGI untuk berbicara dengan dunia luar. Ketika menguji aplikasi tersebut, kita ditentukan -protocol = http sehingga kita bisa melihatnya dari web browser. Karena kita akan mengkonfigurasi Nginx sebagai reverse proxy di depan uWSGI, kita dapat mengubah ini. Nginx menerapkan mekanisme uwsgi proxy, yang merupakan protokol biner cepat yang uWSGI dapat digunakan untuk berbicara dengan server lain. Protokol uwsgi sebenarnya default protokol uWSGI, sehingga hanya dengan menghilangkan spesifikasi protokol, itu akan jatuh kembali ke uwsgi.<p>
+Selanjtunya mengubah protokol yang menggunakan uWSGI untuk berbicara dengan dunia luar. Ketika menguji aplikasi tersebut, kita ditentukan -protocol = http sehingga kita bisa melihatnya dari web browser. Karena kita akan mengkonfigurasi Nginx sebagai reverse proxy di depan uWSGI, kita dapat mengubah ini. Nginx menerapkan mekanisme uwsgi proxy, yang merupakan protokol biner cepat yang uWSGI dapat digunakan untuk berbicara dengan server lain. Protokol uwsgi sebenarnya default protokol uWSGI, sehingga hanya dengan menghilangkan spesifikasi protokol, itu akan jatuh kembali ke uwsgi.
 
 ~~~
 socket = ../run/peuyeum.sock
@@ -58,14 +61,15 @@ chown-socket = peuyeum:peuyeum
 chmod-socket = 660
 ~~~
 
-Selanjutnya source code tersebut berfungsi untuk merancang konfigurasi untuk digunakan dengan Nginx, dan juga akan mengubah penggunaan port jaringan dan menggunakan soket Unix sebagai gantinya. Ini lebih aman dan lebih cepat. soket akan dibuat dalam direktori saat ini jika kita menggunakan path relatif. Misalnya pada source code tersebut adalah ../run/peuyeum.sock.  selanjutnya mengubah hak akses untuk "660" sehingga Nginx dapat mengakses nya (untuk itu akan dimulai uWSGI dengan kelompok www-data yang menggunakan Nginx.<p> 
+Selanjutnya source code tersebut berfungsi untuk merancang konfigurasi untuk digunakan dengan Nginx, dan juga akan mengubah penggunaan port jaringan dan menggunakan soket Unix sebagai gantinya. Ini lebih aman dan lebih cepat. soket akan dibuat dalam direktori saat ini jika kita menggunakan path relatif. Misalnya pada source code tersebut adalah ../run/peuyeum.sock.  selanjutnya mengubah hak akses untuk "660" sehingga Nginx dapat mengakses nya (untuk itu akan dimulai uWSGI dengan kelompok www-data yang menggunakan Nginx.
 ~~~
 die-on-term = true
 ~~~
 
-Source code tersebut maksudnya ditambahkan sebagai sebuah opsi sehingga uWSGI akan membunuh proses bukan reload yang terjadi, hal ini perlu karena akan terciptanya file Upstart untuk memulai aplikasi saat boot. Upstart dan uWSGI memiliki ide yang berbeda tentangyang sinyal SIGTERM harus lakukan terhadapsebuah aplikasi. Untuk memilah perbedaan ini sehingga proses dapat ditangani seperti yang diharapkan dengan Upstart.<p>
+Source code tersebut maksudnya ditambahkan sebagai sebuah opsi sehingga uWSGI akan membunuh proses bukan reload yang terjadi, hal ini perlu karena akan terciptanya file Upstart untuk memulai aplikasi saat boot. Upstart dan uWSGI memiliki ide yang berbeda tentangyang sinyal SIGTERM harus lakukan terhadapsebuah aplikasi. Untuk memilah perbedaan ini sehingga proses dapat ditangani seperti yang diharapkan dengan Upstart.
 
 ## peuyeum.py
+
 ~~~
 #!/usr/bin/env python
 
@@ -118,34 +122,37 @@ def application(environ, start_response):
 	start_response('200 OK', [('Content-Type', 'text/html'),('Content-Length', str(len(respon)))])
 	return [respon]
 ~~~
+
 ## Penjelasan
 
 ~~~
 from cgi import parse_qs
 ~~~
 
-source code  tersebut berfungsi untuk memanggil function parse_gs yang terdapat didalam module cgi<p>
+source code  tersebut berfungsi untuk memanggil function parse_gs yang terdapat didalam module cgi
 
+~~~
 def application(environ, start_response):
 ~~~
 
-Kode diatas merupakan aplikasi WSGI yang lengkap. Secara default, uWSGI akan mencari aplikasi yang callable, oleh karena itu function applicationdi panggil. Seperti pada source code diatas, dibutuhkan dua parameter.<p>
-Yang pertama yaitu environ karena itu akan menjadi variabel all-key seperti nilai lingkungan.<p>
-Yang kedua disebut start_response dan nama aplikasi yang akan digunakan secara internal untuk merujuk ke server web (uWSGI) yang dapat dipanggil. Kedua nama parameter ini dipilih hanya karena penggunaannya dalam contoh di spesifikasi PEP 333 yang Mendefinisikan interaksi WSGI<p>
+Kode diatas merupakan aplikasi WSGI yang lengkap. Secara default, uWSGI akan mencari aplikasi yang callable, oleh karena itu function applicationdi panggil. Seperti pada source code diatas, dibutuhkan dua parameter.<br>
+Yang pertama yaitu environ karena itu akan menjadi variabel all-key seperti nilai lingkungan.<br>
+Yang kedua disebut start_response dan nama aplikasi yang akan digunakan secara internal untuk merujuk ke server web (uWSGI) yang dapat dipanggil. Kedua nama parameter ini dipilih hanya karena penggunaannya dalam contoh di spesifikasi PEP 333 yang Mendefinisikan interaksi WSGI
 
 ~~~
 try:
-request_body_size = int(environ.get('CONTENT_LENGTH', 0))
-		except (ValueError):
-		request_body_size = 0
-	origin = environ['REQUEST_URI']
-	request_body = environ['wsgi.input'].read(request_body_size)
-	post = parse_qs(request_body)
+	request_body_size = int(environ.get('CONTENT_LENGTH', 0))
+except (ValueError):
+	request_body_size = 0
+origin = environ['REQUEST_URI']
+request_body = environ['wsgi.input'].read(request_body_size)
+post = parse_qs(request_body)
 ~~~
-Maksud source code diatas adalah cara untuk mengakses data POST.<p>
-response body size ditulisakan dalam bilangan bulat untuk membacanya dari wsgi.input.<p>
-variabel CONTENT_LENGTH,  berfungsi untuk menahan body_size yang mungkin kosong atau hilang sehingga syntax tersebut di tulisakan dalam blok try / except.<p>
-Source code selanjutnya merupakan metode permintaan yang di gunakan yaitu POST, string query akan dikirim ke request_body HTTP dan bukan di URL. Request_body ada di server WSGI yang disertakan file wsgi.input seperti variabel environ.<p>
+
+Maksud source code diatas adalah cara untuk mengakses data POST.<br>
+response body size ditulisakan dalam bilangan bulat untuk membacanya dari wsgi.input.<br>
+variabel CONTENT_LENGTH,  berfungsi untuk menahan body_size yang mungkin kosong atau hilang sehingga syntax tersebut di tulisakan dalam blok try / except.<br>
+Source code selanjutnya merupakan metode permintaan yang di gunakan yaitu POST, string query akan dikirim ke request_body HTTP dan bukan di URL. Request_body ada di server WSGI yang disertakan file wsgi.input seperti variabel environ.
 
 ~~~
 else:
@@ -153,24 +160,27 @@ else:
 	<html>
 	<head><title>403 Porbidden</title></head>
 	<body bgcolor="white">
-	<center><h1>403 Porbidden </h1></center>
+	<center><h1>403 Porbidden</h1></center>
 	<hr><center>peuyeum/bdg</center>
-</body>
-</html>
+	</body>
+	</html>
 	"""
 ~~~
-Maksud source code nilai return dari [respon] yang akan di kembalikan selain nilai return sebelumnya saat di compile.<p>
-Nilai yang dikembalikan merupakan halaman index yang akan tampil ketika program yang di compile mengalami error.<p>
-Pesan yang tampil dengan header 403 Porbidden di atur dengan warna background putih, kemudian diikuti dengan isi yang pertama yaitu judul ukuran heading1 “403 Porbidden”, kemudia bagian center akan di tampilkan text peuyeum/bdg<p>
+
+Maksud source code nilai return dari [respon] yang akan di kembalikan selain nilai return sebelumnya saat di compile.<br>
+Nilai yang dikembalikan merupakan halaman index yang akan tampil ketika program yang di compile mengalami error.<br>
+Pesan yang tampil dengan header 403 Porbidden di atur dengan warna background putih, kemudian diikuti dengan isi yang pertama yaitu judul ukuran heading1 “403 Porbidden”, kemudia bagian center akan di tampilkan text peuyeum/bdg
 
 ~~~
 start_response('200 OK', [('Content-Type', 'text/html'),('Content-Length', str(len(respon)))])
-	return [respon]
+return [respon]
 ~~~
-Source code tersebut berfungsi untuk mengambil informasi dengan cara harus memanggil callable yang diterima dengan kode status HTTP dan setiap header yang ingin dikirim kembali. Misalnya pada source code di atas dikirimkan respons "200 OK" dan menyetel tajuk Content-Type ke teks/html<p>
-Selanjutnya yaitu berfungsi untuk mengembalikan nilai [respon].<p>
+
+Source code tersebut berfungsi untuk mengambil informasi dengan cara harus memanggil callable yang diterima dengan kode status HTTP dan setiap header yang ingin dikirim kembali. Misalnya pada source code di atas dikirimkan respons "200 OK" dan menyetel tajuk Content-Type ke teks/html<br>
+Selanjutnya yaitu berfungsi untuk mengembalikan nilai [respon].
 
 ## peuyeum.service
+
 ~~~
 [Unit]
 Description=uWSGI instance to serve agenda
@@ -184,6 +194,7 @@ WantedBy=multi-user.target
 ~~~
 
 ### Penjelasan
+
 ~~~
 [Unit]
 ~~~
@@ -217,5 +228,4 @@ Selanjutnya sourcode tersebut berfungsi untuk mendeklarasikan perintah mulai yan
 WantedBy=multi-user.target
 ~~~
 
-Selajutnya source code diatas merupakan proses terakhir yaitu menambahkan bagian [Install]. Hal ini memungkinkan kita untuk menentukan kapan layanan harus secara otomatis dimulai. Layanan tersebut terikat kepada sistem multi-user. Setiap kali sistem diatur untuk beberapa pengguna (kondisi operasi normal), layanan tersebut akan diaktifkan
-
+Selajutnya source code diatas merupakan proses terakhir yaitu menambahkan bagian [Install]. Hal ini memungkinkan kita untuk menentukan kapan layanan harus secara otomatis dimulai. Layanan tersebut terikat kepada sistem multi-user. Setiap kali sistem diatur untuk beberapa pengguna (kondisi operasi normal), layanan tersebut akan diaktifkan.

@@ -1,7 +1,7 @@
 # Peuyeum Framework
 Geospatial Web Application Framework
 
-1. **Kebutuhan :**
+## Kebutuhan
 
 - Virtualenv
 - Uwsgi
@@ -10,7 +10,7 @@ Geospatial Web Application Framework
 - Redis
 - MySql
 
-Disini saya akan menjelaskan secara singkat kegunaan dari setiap kebutuhan yang diperlukan.
+Disini dijelaskan secara singkat kegunaan dari setiap kebutuhan yang diperlukan.
 
 - Virtualenv
 
@@ -36,187 +36,130 @@ Redis adalah Open Source yang digunakan untuk menyimpan struktur data pada memor
 
 MySQL adalah database yang digunakan untuk menyimpan data pada pembuatan program.
 
-2. **Instalation :**
+## Instalasi
 
-Pada tahap instalasi, kita tentunya harus memenuhi kebutuhan-kebutuhan yang mendukung jalannya program aplikasi yang kita buat.Selain itu, kita juga harus menyesuaikan setiap kebutuhan yang cocok untuk  spesifikasi sistem yang kita gunakan untuk menghindari banyaknya ketidakcocokan pada saat menjalankan aplikasi tersebut. Tahap-tahap instalasi yang dilakukan adalah sebagai berikut:
+Pada tahap instalasi, kita tentunya harus memenuhi kebutuhan-kebutuhan yang mendukung jalannya program aplikasi yang kita buat. Selain itu, kita juga harus menyesuaikan setiap kebutuhan yang cocok untuk spesifikasi sistem yang kita gunakan untuk menghindari banyaknya ketidakcocokan pada saat menjalankan aplikasi tersebut. Tahap-tahap instalasi yang dilakukan adalah sebagai berikut:
 
-- **Centos 6**
+~~~
+# yum groupinstall "Development Tools"
+# yum install python
+# yum install python-pip python-devel
+# pip install uwsgi
+# pip install pymongo
+# pip install pycrypto
+# pip install MySQL-python
+~~~
 
-        # yum --enablerepo=extras install centos-release-SCL
+Install MySQL pada runlevel mana yang akan dimulai:
 
-        # yum install 
-
-        # cd /etc/yum.repos.d/ 
-
-        # wget https://copr.fedorainfracloud.org/coprs/pypa/pypa/repo/epel-6/pypa-pypa-epel-6.repo
-
-        # yum clean all
-
-        # yum install python-backports
-
-        # rpm -ivh ftp://rpmfind.net/linux/centos/6.8/os/x86\_64/Packages/python-backports-ssl\_match\_hostname-3.4.0.2-2.el6.noarch.rpm
-
-        # yum install python-pip
-
-        # pip install virtualenv
-
-        # pip install uwsgi# pip install pymongo
-
-        # pip install pycrypto
-
-        # pip install redis
-
-Bagaimana menginstal dan menjalankan program pada centos 6
-
- Instalasi:
-
-    # Yum groupinstall "Development Tools"
-    
-    # Yum install python 
-    
-    # Yum install python-pip python-devel     
-    
-    # Pip pasang uwsgi 
-    
-    # Pip install pymongo
-    
-    # Pip pasang pycrypto 
-    
-    # Pip install MySQL-python
-
-- Instal MySQL  pada runlevel mana yang akan dimulai:
-
-**# Yum install mysql-server**
+~~~
+# yum install mysql-server
+~~~
 
 Kemudian untuk memulai server MySQL:
 
-**# Service mysqld start**
+~~~
+# service mysqld start
+~~~
 
-Jalankan skrip mysql\_secure\_installation untuk mengatasi beberapa masalah keamanan di instalasi MySQL default.
+Jalankan skrip mysql_secure_installation untuk mengatasi beberapa masalah keamanan di instalasi MySQL default.
 
-**# Mysql\_secure\_installation**
+~~~
+# mysql_secure_installation
+~~~
 
 Untuk login ke MySQL sebagai Root User:
 
-**# Mysql -u root -p**
+~~~
+# mysql -u root -p
+~~~
 
-Saat diminta, masukkan kata sandi root yang Anda tetapkan saat skrip mysql\_secure\_installation dijalankan.
-
+Saat diminta, masukkan kata sandi root yang Anda tetapkan saat skrip mysql_secure_installation dijalankan.<br>
 Anda kemudian akan disajikan dengan layar monitor MySQL:
 
-**Selamat datang di monitor MySQL**
+~~~
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 1
+Server version: 5.1.73 Source distribution
 
-        Perintah diakhiri dengan; or \ g.
+Copyright (c) 2000, 2013, Oracle and/or its affiliates. All rights reserved.
 
-        Id koneksi MySQL anda adalah 1
+Oracle is a registered trademark of Oracle Corporation and/or its affiliates. 
+Other names may be trademarks of their respective owners.
 
-        Server version: 5.1.73 Source distribution
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
 
-        Copyright (c) 2000, 2013, Oracle and / or afiliasinya. All rights reserved.
+mysql> create database kelasc;
+mysql> exit
+~~~
 
-**Oracle**
+Import database ke database tujuan di MySQL.
 
-        Oracle adalah merek dagang terdaftar dari Oracle Corporation dan / atau    afiliasinya.
+~~~
+# cd tugas/docs
+# mysql -u root -p ****** kelasc < mysql.sql
+# cd ..
+~~~
 
-        Nama lain mungkin merupakan merek dagang dari pemiliknya masing-masing.
+Kemudian, edit file peuyeum.ini. <br>
+Untuk mengedit file pada baris perintah, Anda bisa menggunakan editor seperti vi.
 
-        Type 'help;' or '\ h' for help. Ketik '\ c' to clear the current input statement.
+~~~
+# vi peuyeum.ini
+~~~
+~~~
+[uwsgi]
+module = peuyeum:application
+check-static = ./public
 
--
-  - Mysql > create database kelasc;
-  - Mysql&gt; exit
-  - Import database ke database tujuan di MySQL.
+master = true
+processes = 5
+http = 0.0.0.0:8080
+#uid = peuyeum
+#socket = ../run/peuyeum.sock
+#chown-socket = peuyeum:peuyeum
+#chmod-socket = 660
+#vacuum = true
 
-        # Cd tugas / docs
-    
-        # Mysql -u root -p \*\*\*\*\*\* kelasc < mysql.sql
-    
-        # Cd ..
+die-on-term = true
+~~~
 
--
-  - Kemudian, edit file peuyeum.ini. &lt;br&gt;
-  - Untuk mengedit file pada baris perintah, Anda bisa menggunakan editor seperti vi.
+Setelah itu, edit file config.py:
+~~~
+# cd lib
+# vi config.py
+~~~
+~~~
+config.py 
+set paramater of your server
+"""
+### Menus
+keyuri = "URI"
+tokenuri = "TKN"
 
-**# Vi peuyeum.ini**
+### Database
+mongohost = "localhost"
+mongoport = 27017
+mysqlhost = "localhost"
+mysqldb = "kelasc"
+mysqluser = "root"
+mysqlpassword = "your password"
 
-        [Uwsgi]
+### Security module
+key = "your key 16 char"
+iv = "your iv 16 char"
+tokenurl = "https://www.googleapis.com/oauth2/v3/tokeninfo?id_token="
+iss = "accounts.google.com"
+aud = "WEB_CLIENT_ID"
+domainacl = "poltekpos.ac.id"
+urltimeout = 3600
 
-        module = peuyeum: application
+### mapserver
+WMTS="http://peta.peuyeum.com/wmts/sampeu/ragi/{z}/{x}/{y}.png"
+~~~
 
-        Check-static = ./public
-
-    Master = true
-    
-    Processes = 5
-    
-    Http = 0.0.0.0:8080
-    
-    # uid = 
-
-    #socket = ../run/peuyeum.sock
-    
-    # Chown-socket = peuyeum: peuyeum
-
-    # Chmod-socket = 660
-    
-    # vacuum = true
-
--
-  - Die-on-term = true
-  - Setelah itu, edit file config.py:
-
-        # Cd lib
-
-        # Vi config.py
-
--
-  -config.py
-  - Atur paramater dari server anda
-
-        "" "
-
-        ### Menu
-
-        Keyuri = "URI"
-
-        Tokenuri = "TKN"
-
-        ### Database
-
-        Mongohost = "localhost"
-
-        Mongoport = 27017
-
-        Mysqlhost = "localhost"
-
-        Mysqldb = "kelasc"
-
-        Mysqluser = "root"
-
-        Mysqlpassword = "your password"
-
-        ### Security module
-
-        Key = "your key 16 char"
-
-        Iv = "your iv 16 char"
-
-        Tokenurl = "https://www.googleapis.com/oauth2/v3/tokeninfo?id\_token="
-
-        Iss = "accounts.google.com"
-
-        Aud = "WEB\_CLIENT\_ID"
-
-        Domainacl = "poltekpos.ac.id"
-
-        Urltimeout = 3600
-
-        ### mapserver
-
-        WMTS = "http://peta.peuyeum.com/wmts/sampeu/ragi/{z}/{x}/{y}.png"
-
-- Terakhir , jalankan uwsgi di centos 6:
-
-        # Cd ..
-
-        # Uwsgi peuyeum.ini
+Terakhir , jalankan uwsgi di centos 6:
+~~~
+# cd ..
+# uwsgi peuyeum.ini
+~~~
