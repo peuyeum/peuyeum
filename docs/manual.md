@@ -147,3 +147,26 @@ response body size ditulisakan dalam bilangan bulat untuk membacanya dari wsgi.i
 variabel CONTENT_LENGTH,  berfungsi untuk menahan body_size yang mungkin kosong atau hilang sehingga syntax tersebut di tulisakan dalam blok try / except.<p>
 Source code selanjutnya merupakan metode permintaan yang di gunakan yaitu POST, string query akan dikirim ke request_body HTTP dan bukan di URL. Request_body ada di server WSGI yang disertakan file wsgi.input seperti variabel environ.<p>
 
+~~~
+else:
+	respon = """
+	<html>
+	<head><title>403 Porbidden</title></head>
+	<body bgcolor="white">
+	<center><h1>403 Porbidden </h1></center>
+	<hr><center>peuyeum/bdg</center>
+</body>
+</html>
+	"""
+~~~
+Maksud source code nilai return dari [respon] yang akan di kembalikan selain nilai return sebelumnya saat di compile.<p>
+Nilai yang dikembalikan merupakan halaman index yang akan tampil ketika program yang di compile mengalami error.<p>
+Pesan yang tampil dengan header 403 Porbidden di atur dengan warna background putih, kemudian diikuti dengan isi yang pertama yaitu judul ukuran heading1 “403 Porbidden”, kemudia bagian center akan di tampilkan text peuyeum/bdg<p>
+
+~~~
+start_response('200 OK', [('Content-Type', 'text/html'),('Content-Length', str(len(respon)))])
+	return [respon]
+~~~
+Source code tersebut berfungsi untuk mengambil informasi dengan cara harus memanggil callable yang diterima dengan kode status HTTP dan setiap header yang ingin dikirim kembali. Misalnya pada source code di atas dikirimkan respons "200 OK" dan menyetel tajuk Content-Type ke teks/html<p>
+Selanjutnya yaitu berfungsi untuk mengembalikan nilai [respon].<p>
+
