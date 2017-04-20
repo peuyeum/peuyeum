@@ -75,3 +75,33 @@ Kemudian untuk memulai server MySQL:
 **# Service mysqld mulai**
 
 Jalankan skrip mysql\_secure\_installation untuk mengatasi beberapa masalah keamanan di instalasi MySQL default.
+
+**# Mysql\_secure\_installation**
+
+Untuk login ke MySQL sebagai Root User:
+
+**# Mysql -u root -p**
+
+Saat diminta, masukkan kata sandi root yang Anda tetapkan saat skrip mysql\_secure\_installation dijalankan.
+
+Anda kemudian akan disajikan dengan layar monitor MySQL:
+
+**--Selamat datang di monitor MySQL--.**
+
+        Perintah diakhiri dengan; Atau \ g.
+
+        Id koneksi MySQL anda adalah 1
+
+        Versi server: 5.1.73 Sumber distribusi
+
+        Hak Cipta (c) 2000, 2013, Oracle dan / atau afiliasinya. Seluruh hak cipta.
+
+**        Oracle**
+
+        Oracle adalah merek dagang terdaftar dari Oracle Corporation dan / atau    afiliasinya.
+
+        Nama lain mungkin merupakan merek dagang dari pemiliknya masing-masing.
+
+        Ketik &#39;bantuan;&#39; Atau &#39;\ h&#39; untuk bantuan. Ketik &#39;\ c&#39; untuk menghapus pernyataan
+
+    masukan saat ini.
