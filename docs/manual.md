@@ -126,4 +126,24 @@ from cgi import parse_qs
 
 source code  tersebut berfungsi untuk memanggil function parse_gs yang terdapat didalam module cgi<p>
 
+def application(environ, start_response):
+~~~
+
+Kode diatas merupakan aplikasi WSGI yang lengkap. Secara default, uWSGI akan mencari aplikasi yang callable, oleh karena itu function applicationdi panggil. Seperti pada source code diatas, dibutuhkan dua parameter.<p>
+Yang pertama yaitu environ karena itu akan menjadi variabel all-key seperti nilai lingkungan.<p>
+Yang kedua disebut start_response dan nama aplikasi yang akan digunakan secara internal untuk merujuk ke server web (uWSGI) yang dapat dipanggil. Kedua nama parameter ini dipilih hanya karena penggunaannya dalam contoh di spesifikasi PEP 333 yang Mendefinisikan interaksi WSGI<p>
+
+~~~
+try:
+request_body_size = int(environ.get('CONTENT_LENGTH', 0))
+		except (ValueError):
+		request_body_size = 0
+	origin = environ['REQUEST_URI']
+	request_body = environ['wsgi.input'].read(request_body_size)
+	post = parse_qs(request_body)
+~~~
+Maksud source code diatas adalah cara untuk mengakses data POST.<p>
+response body size ditulisakan dalam bilangan bulat untuk membacanya dari wsgi.input.<p>
+variabel CONTENT_LENGTH,  berfungsi untuk menahan body_size yang mungkin kosong atau hilang sehingga syntax tersebut di tulisakan dalam blok try / except.<p>
+Source code selanjutnya merupakan metode permintaan yang di gunakan yaitu POST, string query akan dikirim ke request_body HTTP dan bukan di URL. Request_body ada di server WSGI yang disertakan file wsgi.input seperti variabel environ.<p>
 
