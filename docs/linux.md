@@ -190,3 +190,9 @@ Http = 0.0.0.0:8080
         ### mapserver
 
         WMTS = &quot;http://peta.peuyeum.com/wmts/sampeu/ragi/{z}/{x}/{y}.png&quot;
+
+- --Terakhir , jalankan uwsgi di centos 6:
+
+        # Cd ..
+
+        # Uwsgi peuyeum.ini
