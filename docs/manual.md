@@ -117,19 +117,4 @@ def application(environ, start_response):
 	start_response('200 OK', [('Content-Type', 'text/html'),('Content-Length', str(len(respon)))])
 	return [respon]
 ~~~
-## Penjelasan
-
-~~~
-from cgi import parse_qs
-~~~
-
-source code  tersebut berfungsi untuk memanggil function parse_gs yang terdapat didalam module cgi<p>
-
-~~~
-def application(environ, start_response):
-~~~
-
-Kode diatas merupakan aplikasi WSGI yang lengkap. Secara default, uWSGI akan mencari aplikasi yang callable, oleh karena itu function applicationdi panggil. Seperti pada source code diatas, dibutuhkan dua parameter.<p>
-Yang pertama yaitu environ karena itu akan menjadi variabel all-key seperti nilai lingkungan.<p>
-Yang kedua disebut start_response dan nama aplikasi yang akan digunakan secara internal untuk merujuk ke server web (uWSGI) yang dapat dipanggil. Kedua nama parameter ini dipilih hanya karena penggunaannya dalam contoh di spesifikasi PEP 333 yang Mendefinisikan interaksi WSGI<p>
 
