@@ -121,11 +121,11 @@ Anda kemudian akan disajikan dengan layar monitor MySQL:
   - Mysql&gt; exit
   - Import database ke database tujuan di MySQL.
 
-    # Cd tugas / docs
+        # Cd tugas / docs
     
-    # Mysql -u root -p \*\*\*\*\*\* kelasc &lt;mysql.sql
+        # Mysql -u root -p \*\*\*\*\*\* kelasc &lt;mysql.sql
     
-    # Cd ..
+        # Cd ..
 
 -
   - Kemudian, edit file peuyeum.ini. &lt;br&gt;
@@ -158,9 +158,9 @@ Anda kemudian akan disajikan dengan layar monitor MySQL:
   - Die-on-term = true
   - Setelah itu, edit file config.py:
 
-    # Cd lib
+        # Cd lib
 
-    # Vi config.py
+        # Vi config.py
 
 -
   -config.py
