@@ -42,41 +42,41 @@ Pada tahap instalasi, kita tentunya harus memenuhi kebutuhan-kebutuhan yang mend
 
 - **Centos 6**
 
-		# yum --enablerepo=extras install centos-release-SCL
+    # yum --enablerepo=extras install centos-release-SCL
 
-		# yum install python27# cd /etc/yum.repos.d/ 
+    # yum install python27# cd /etc/yum.repos.d/ 
 
-		# wget https://copr.fedorainfracloud.org/coprs/pypa/pypa/repo/epel-6/pypa-pypa-epel-6.repo
+    # wget https://copr.fedorainfracloud.org/coprs/pypa/pypa/repo/epel-6/pypa-pypa-epel-6.repo
 
-		# yum clean all
+    # yum clean all
 
-		# yum install python-backports
+    # yum install python-backports
 
-		# rpm -ivh ftp://rpmfind.net/linux/centos/6.8/os/x86\_64/Packages/python-backports-ssl\_match\_hostname-3.4.0.2-2.el6.noarch.rpm
+    # rpm -ivh ftp://rpmfind.net/linux/centos/6.8/os/x86\_64/Packages/python-backports-ssl\_match\_hostname-3.4.0.2-2.el6.noarch.rpm
 
-		# yum install python-pip# pip install virtualenv# pip install uwsgi# pip install pymongo
+    # yum install python-pip# pip install virtualenv# pip install uwsgi# pip install pymongo
 
-		# pip install pycrypto
+    # pip install pycrypto
 
-		# pip install redis
+    # pip install redis
 
 Bagaimana menginstal dan menjalankan program pada centos 6
 
  Instalasi:
 
-		# Yum groupinstall &quot;Alat Pengembangan&quot;
-		
-		# Yum install python 
-		
-		# Yum install python-pip python-devel     
-		
-		# Pip pasang uwsgi 
-		
-		# Pip install pymongo
-		
-		# Pip pasang pycrypto 
-		
-		# Pip install MySQL-python
+    # Yum groupinstall &quot;Development Tools&quot;
+    
+    # Yum install python 
+    
+    # Yum install python-pip python-devel     
+    
+    # Pip pasang uwsgi 
+    
+    # Pip install pymongo
+    
+    # Pip pasang pycrypto 
+    
+    # Pip install MySQL-python
 
 - Instal MySQL  pada runlevel mana yang akan dimulai:
 
@@ -84,7 +84,7 @@ Bagaimana menginstal dan menjalankan program pada centos 6
 
 Kemudian untuk memulai server MySQL:
 
-**# Service mysqld mulai**
+**# Service mysqld start**
 
 Jalankan skrip mysql\_secure\_installation untuk mengatasi beberapa masalah keamanan di instalasi MySQL default.
 
@@ -100,13 +100,13 @@ Anda kemudian akan disajikan dengan layar monitor MySQL:
 
 **Selamat datang di monitor MySQL**
 
-        Perintah diakhiri dengan; Atau \ g.
+        Perintah diakhiri dengan; or \ g.
 
         Id koneksi MySQL anda adalah 1
 
-        Versi server: 5.1.73 Sumber distribusi
+        Server version: 5.1.73 Source distribution
 
-        Hak Cipta (c) 2000, 2013, Oracle dan / atau afiliasinya. Seluruh hak cipta.
+        Copyright (c) 2000, 2013, Oracle and / or afiliasinya. All rights reserved.
 
 **Oracle**
 
@@ -114,20 +114,18 @@ Anda kemudian akan disajikan dengan layar monitor MySQL:
 
         Nama lain mungkin merupakan merek dagang dari pemiliknya masing-masing.
 
-        Ketik &#39;bantuan;&#39; Atau &#39;\ h&#39; untuk bantuan. Ketik &#39;\ c&#39; untuk menghapus pernyataan
-
-    masukan saat ini.
+        Type &#39;help;&#39; or &#39;\ h&#39; for help. Ketik &#39;\ c&#39; to clear the current input statement.
 
 -
-  - Mysql membuat database kelasc;
-  - Mysql&gt; keluar
-  - Impor database ke database tujuan Anda di MySQL.
+  - Mysql > create database kelasc;
+  - Mysql&gt; exit
+  - Import database ke database tujuan di MySQL.
 
-		# Cd tugas / docs
-		
-		# Mysql -u root -p \*\*\*\*\*\* kelasc &lt;mysql.sql
-		
-		# Cd ..
+    # Cd tugas / docs
+    
+    # Mysql -u root -p \*\*\*\*\*\* kelasc &lt;mysql.sql
+    
+    # Cd ..
 
 -
   - Kemudian, edit file peuyeum.ini. &lt;br&gt;
@@ -137,34 +135,35 @@ Anda kemudian akan disajikan dengan layar monitor MySQL:
 
         [Uwsgi]
 
-        Modul = peuyeum: aplikasi
+        module = peuyeum: application
 
         Check-static = ./public
 
-		Master = benar
-		
-		Proses = 5
-		
-		Http = 0.0.0.0:8080
-		
-		# uid = peuyeum#socket = ../run/peuyeum.sock
-		
-		# Chown-socket = peuyeum: peuyeum
+    Master = true
+    
+    Processes = 5
+    
+    Http = 0.0.0.0:8080
+    
+    # uid = peuyeum
+    #socket = ../run/peuyeum.sock
+    
+    # Chown-socket = peuyeum: peuyeum
 
-		# Chmod-socket = 660
-		
-		# vacuum = true
+    # Chmod-socket = 660
+    
+    # vacuum = true
 
 -
   - Die-on-term = true
   - Setelah itu, edit file config.py:
 
-		# Cd lib
+    # Cd lib
 
-		# Vi config.py
+    # Vi config.py
 
 -
-  - py
+  -config.py
   - Atur paramater dari server anda
 
         &quot;&quot; &quot;
@@ -177,7 +176,7 @@ Anda kemudian akan disajikan dengan layar monitor MySQL:
 
         ### Database
 
-        Mongohost = &quot;lokal&quot;
+        Mongohost = &quot;localhost&quot;
 
         Mongoport = 27017
 
@@ -187,11 +186,11 @@ Anda kemudian akan disajikan dengan layar monitor MySQL:
 
         Mysqluser = &quot;root&quot;
 
-        Mysqlpassword = &quot;kata sandi anda&quot;
+        Mysqlpassword = &quot;your password&quot;
 
-        ### Modul keamanan
+        ### Security module
 
-        Kunci = &quot;kunci Anda 16 char&quot;
+        Key = &quot;your key 16 char&quot;
 
         Iv = &quot;your iv 16 char&quot;
 
