@@ -42,28 +42,41 @@ Pada tahap instalasi, kita tentunya harus memenuhi kebutuhan-kebutuhan yang mend
 
 - **Centos 6**
 
-	yum --enablerepo=extras install centos-release-SCL
-	yum install python27# cd /etc/yum.repos.d/ 
-	wget https://copr.fedorainfracloud.org/coprs/pypa/pypa/repo/epel-6/pypa-pypa-epel-6.repo
-	yum clean all
-	yum install python-backports
-	rpm -ivh ftp://rpmfind.net/linux/centos/6.8/os/x86\_64/Packages/python-backports-ssl\_match\_hostname-3.4.0.2-2.el6.noarch.rpm
-	yum install python-pip# pip install virtualenv# pip install uwsgi# pip install pymongo
-	pip install pycrypto
-	pip install redis
+		# yum --enablerepo=extras install centos-release-SCL
+
+		# yum install python27# cd /etc/yum.repos.d/ 
+
+		# wget https://copr.fedorainfracloud.org/coprs/pypa/pypa/repo/epel-6/pypa-pypa-epel-6.repo
+
+		# yum clean all
+
+		# yum install python-backports
+
+		# rpm -ivh ftp://rpmfind.net/linux/centos/6.8/os/x86\_64/Packages/python-backports-ssl\_match\_hostname-3.4.0.2-2.el6.noarch.rpm
+
+		# yum install python-pip# pip install virtualenv# pip install uwsgi# pip install pymongo
+
+		# pip install pycrypto
+
+		# pip install redis
 
 Bagaimana menginstal dan menjalankan program pada centos 6
 
  Instalasi:
 
-| # Yum groupinstall &quot;Alat Pengembangan&quot;
-# Yum install python 
-# Yum install python-pip python-devel     
-# Pip pasang uwsgi 
-# Pip install pymongo
-# Pip pasang pycrypto 
-# Pip install MySQL-python |
-| --- |
+		# Yum groupinstall &quot;Alat Pengembangan&quot;
+		
+		# Yum install python 
+		
+		# Yum install python-pip python-devel     
+		
+		# Pip pasang uwsgi 
+		
+		# Pip install pymongo
+		
+		# Pip pasang pycrypto 
+		
+		# Pip install MySQL-python
 
 - Instal MySQL  pada runlevel mana yang akan dimulai:
 
@@ -110,17 +123,17 @@ Anda kemudian akan disajikan dengan layar monitor MySQL:
   - Mysql&gt; keluar
   - Impor database ke database tujuan Anda di MySQL.
 
-| # Cd tugas / docs
-# Mysql -u root -p \*\*\*\*\*\* kelasc &lt;mysql.sql
-# Cd .. |
-| --- |
+		# Cd tugas / docs
+		
+		# Mysql -u root -p \*\*\*\*\*\* kelasc &lt;mysql.sql
+		
+		# Cd ..
 
 -
   - Kemudian, edit file peuyeum.ini. &lt;br&gt;
   - Untuk mengedit file pada baris perintah, Anda bisa menggunakan editor seperti vi.
 
-| # Vi peuyeum.ini |
-| --- |
+** # Vi peuyeum.ini **
 
         [Uwsgi]
 
@@ -128,21 +141,25 @@ Anda kemudian akan disajikan dengan layar monitor MySQL:
 
         Check-static = ./public
 
-| Master = benar
-Proses = 5
-Http = 0.0.0.0:8080
-#uid = peuyeum#socket = ../run/peuyeum.sock
-# Chown-socket = peuyeum: peuyeum
-# Chmod-socket = 660
-#vacuum = true |
-| --- |
+		Master = benar
+		
+		Proses = 5
+		
+		Http = 0.0.0.0:8080
+		
+		# uid = peuyeum#socket = ../run/peuyeum.sock
+		
+		# Chown-socket = peuyeum: peuyeum
+
+		# Chmod-socket = 660
+		
+		# vacuum = true
 
 -
   - Die-on-term = true
   - Setelah itu, edit file config.py:
 
-| # Cd lib# Vi config.py |
-| --- |
+** # Cd lib# Vi config.py **
 
 -
   - py
