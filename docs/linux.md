@@ -35,3 +35,20 @@ Redis adalah Open Source yang digunakan untuk menyimpan struktur data pada memor
 - --MySQL
 
 MySQL adalah database yang digunakan untuk menyimpan data pada pembuatan program.
+
+1. **Instalation :**
+
+Pada tahap instalasi, kita tentunya harus memenuhi kebutuhan-kebutuhan yang mendukung jalannya program aplikasi yang kita buat.Selain itu, kita juga harus menyesuaikan setiap kebutuhan yang cocok untuk  spesifikasi sistem yang kita gunakan untuk menghindari banyaknya ketidakcocokan pada saat menjalankan aplikasi tersebut. Tahap-tahap instalasi yang dilakukan adalah sebagai berikut:
+
+- **Centos 6**
+
+| # yum --enablerepo=extras install centos-release-SCL
+# yum install python27# cd /etc/yum.repos.d/ 
+# wget https://copr.fedorainfracloud.org/coprs/pypa/pypa/repo/epel-6/pypa-pypa-epel-6.repo
+# yum clean all
+# yum install python-backports
+# rpm -ivh ftp://rpmfind.net/linux/centos/6.8/os/x86\_64/Packages/python-backports-ssl\_match\_hostname-3.4.0.2-2.el6.noarch.rpm
+# yum install python-pip# pip install virtualenv# pip install uwsgi# pip install pymongo
+# pip install pycrypto
+# pip install redis  |
+| --- |
