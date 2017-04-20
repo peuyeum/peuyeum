@@ -105,3 +105,13 @@ Anda kemudian akan disajikan dengan layar monitor MySQL:
         Ketik &#39;bantuan;&#39; Atau &#39;\ h&#39; untuk bantuan. Ketik &#39;\ c&#39; untuk menghapus pernyataan
 
     masukan saat ini.
+
+-
+  - --Mysql membuat database kelasc;
+  - --Mysql&gt; keluar
+  - --Impor database ke database tujuan Anda di MySQL.
+
+| # Cd tugas / docs
+# Mysql -u root -p \*\*\*\*\*\* kelasc &lt;mysql.sql
+# Cd .. |
+| --- |
