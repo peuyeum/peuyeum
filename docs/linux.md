@@ -123,7 +123,7 @@ Anda kemudian akan disajikan dengan layar monitor MySQL:
 
         # Cd tugas / docs
     
-        # Mysql -u root -p \*\*\*\*\*\* kelasc &lt;mysql.sql
+        # Mysql -u root -p \*\*\*\*\*\* kelasc < mysql.sql
     
         # Cd ..
 
