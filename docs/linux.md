@@ -36,7 +36,7 @@ Redis adalah Open Source yang digunakan untuk menyimpan struktur data pada memor
 
 MySQL adalah database yang digunakan untuk menyimpan data pada pembuatan program.
 
-1. **Instalation :**
+2. **Instalation :**
 
 Pada tahap instalasi, kita tentunya harus memenuhi kebutuhan-kebutuhan yang mendukung jalannya program aplikasi yang kita buat.Selain itu, kita juga harus menyesuaikan setiap kebutuhan yang cocok untuk  spesifikasi sistem yang kita gunakan untuk menghindari banyaknya ketidakcocokan pada saat menjalankan aplikasi tersebut. Tahap-tahap instalasi yang dilakukan adalah sebagai berikut:
 
@@ -159,7 +159,9 @@ Anda kemudian akan disajikan dengan layar monitor MySQL:
   - Die-on-term = true
   - Setelah itu, edit file config.py:
 
-** # Cd lib# Vi config.py **
+		# Cd lib
+
+		# Vi config.py
 
 -
   - py
