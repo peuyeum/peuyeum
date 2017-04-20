@@ -24,7 +24,7 @@ class Controller(object):
 		'102.197241, -3.063513',
 		'102.651107, -3.626281',
 		'102.423630, -3.683268',
-		'102.264410, -3.793830'
+		'102.301486, -3.826713'
 		]
 		batik.provinsi(provinsi,listkabkot,provloc,mapzoom,kabkotcord)
 		cal = calendar.Calendar()
