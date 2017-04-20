@@ -3,36 +3,36 @@ Geospatial Web Application Framework
 
 1. **Kebutuhan :**
 
-- --Virtualenv
-- --Uwsgi
-- --Pymongo
-- --Pycrypto
-- --Redis
-- --MySql
+- Virtualenv
+- Uwsgi
+- Pymongo
+- Pycrypto
+- Redis
+- MySql
 
 Disini saya akan menjelaskan secara singkat kegunaan dari setiap kebutuhan yang diperlukan.
 
-- --Virtualenv
+- Virtualenv
 
 Virtualenv adalah sebuah software (berbasis python) yang mana bertujuan untuk membuat sebuah lingkungan python yang terisolasi dari lingkunagan python global, jadi program python apapun yang anda jalankan di dalamnya maka tidak akan terpengaruh oleh lingkungan python global, atau program yang sudah terinstall di lingkungan Python global.
 
-- --Uwsgi
+- Uwsgi
 
 Uwsgi adalah sebuah aplikasi yang digunakan untuk menggambarkan beberapa prosedur installation, menggunakan pip, pengelola python.
 
-- --Pymongo
+- Pymongo
 
 Pymongo adalah driver yang digunakan python untuk melakukan koneksi ke mongodb.
 
-- --Pycrypto
+- Pycrypto
 
 Pycrypto adalah Sebuah Bahasa pemrograman yang digunakan untuk rancang bangun aplikasi yang dapat berbetuk File Secure.
 
-- --Redis
+- Redis
 
 Redis adalah Open Source yang digunakan untuk menyimpan struktur data pada memori, biasanya digunakan sebgaia database cache dan message broker.
 
-- --MySQL
+- MySQL
 
 MySQL adalah database yang digunakan untuk menyimpan data pada pembuatan program.
 
@@ -42,15 +42,15 @@ Pada tahap instalasi, kita tentunya harus memenuhi kebutuhan-kebutuhan yang mend
 
 - **Centos 6**
 
-| # yum --enablerepo=extras install centos-release-SCL
-# yum install python27# cd /etc/yum.repos.d/ 
-# wget https://copr.fedorainfracloud.org/coprs/pypa/pypa/repo/epel-6/pypa-pypa-epel-6.repo
-# yum clean all
-# yum install python-backports
-# rpm -ivh ftp://rpmfind.net/linux/centos/6.8/os/x86\_64/Packages/python-backports-ssl\_match\_hostname-3.4.0.2-2.el6.noarch.rpm
-# yum install python-pip# pip install virtualenv# pip install uwsgi# pip install pymongo
-# pip install pycrypto
-# pip install redis  |
+| yum --enablerepo=extras install centos-release-SCL
+yum install python27# cd /etc/yum.repos.d/ 
+wget https://copr.fedorainfracloud.org/coprs/pypa/pypa/repo/epel-6/pypa-pypa-epel-6.repo
+yum clean all
+yum install python-backports
+rpm -ivh ftp://rpmfind.net/linux/centos/6.8/os/x86\_64/Packages/python-backports-ssl\_match\_hostname-3.4.0.2-2.el6.noarch.rpm
+yum install python-pip# pip install virtualenv# pip install uwsgi# pip install pymongo
+pip install pycrypto
+pip install redis  |
 | --- |
 
 Bagaimana menginstal dan menjalankan program pada centos 6
@@ -107,9 +107,9 @@ Anda kemudian akan disajikan dengan layar monitor MySQL:
     masukan saat ini.
 
 -
-  - --Mysql membuat database kelasc;
-  - --Mysql&gt; keluar
-  - --Impor database ke database tujuan Anda di MySQL.
+  - Mysql membuat database kelasc;
+  - Mysql&gt; keluar
+  - Impor database ke database tujuan Anda di MySQL.
 
 | # Cd tugas / docs
 # Mysql -u root -p \*\*\*\*\*\* kelasc &lt;mysql.sql
@@ -117,8 +117,8 @@ Anda kemudian akan disajikan dengan layar monitor MySQL:
 | --- |
 
 -
-  - --Kemudian, edit file peuyeum.ini. &lt;br&gt;
-  - --Untuk mengedit file pada baris perintah, Anda bisa menggunakan editor seperti vi.
+  - Kemudian, edit file peuyeum.ini. &lt;br&gt;
+  - Untuk mengedit file pada baris perintah, Anda bisa menggunakan editor seperti vi.
 
 | # Vi peuyeum.ini |
 | --- |
@@ -139,15 +139,15 @@ Http = 0.0.0.0:8080
 | --- |
 
 -
-  - --Die-on-term = true
-  - --Setelah itu, edit file config.py:
+  - Die-on-term = true
+  - Setelah itu, edit file config.py:
 
 | # Cd lib# Vi config.py |
 | --- |
 
 -
-  - --py
-  - --Atur paramater dari server anda
+  - py
+  - Atur paramater dari server anda
 
         &quot;&quot; &quot;
 
@@ -191,7 +191,7 @@ Http = 0.0.0.0:8080
 
         WMTS = &quot;http://peta.peuyeum.com/wmts/sampeu/ragi/{z}/{x}/{y}.png&quot;
 
-- --Terakhir , jalankan uwsgi di centos 6:
+- Terakhir , jalankan uwsgi di centos 6:
 
         # Cd ..
 
