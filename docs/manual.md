@@ -51,3 +51,11 @@ uid = peuyeum
 ~~~
 
 Selanjtunya mengubah protokol yang menggunakan uWSGI untuk berbicara dengan dunia luar. Ketika menguji aplikasi tersebut, kita ditentukan -protocol = http sehingga kita bisa melihatnya dari web browser. Karena kita akan mengkonfigurasi Nginx sebagai reverse proxy di depan uWSGI, kita dapat mengubah ini. Nginx menerapkan mekanisme uwsgi proxy, yang merupakan protokol biner cepat yang uWSGI dapat digunakan untuk berbicara dengan server lain. Protokol uwsgi sebenarnya default protokol uWSGI, sehingga hanya dengan menghilangkan spesifikasi protokol, itu akan jatuh kembali ke uwsgi.<p>
+
+~~~
+socket = ../run/peuyeum.sock
+chown-socket = peuyeum:peuyeum
+chmod-socket = 660
+~~~
+
+Selanjutnya source code tersebut berfungsi untuk merancang konfigurasi untuk digunakan dengan Nginx, dan juga akan mengubah penggunaan port jaringan dan menggunakan soket Unix sebagai gantinya. Ini lebih aman dan lebih cepat. soket akan dibuat dalam direktori saat ini jika kita menggunakan path relatif. Misalnya pada source code tersebut adalah ../run/peuyeum.sock.  selanjutnya mengubah hak akses untuk "660" sehingga Nginx dapat mengakses nya (untuk itu akan dimulai uWSGI dengan kelompok www-data yang menggunakan Nginx.<p> 
