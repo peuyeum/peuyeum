@@ -27,7 +27,7 @@ class Controller(object):
 		'102.301486, -3.826713'
 		]
 		batik.provinsi(provinsi,listkabkot,provloc,mapzoom,kabkotcord)
-		cal = calendarCalendar()
+		cal = calendar.Calendar()
 		dt = {}
 		for kabkot in listkabkot:
 			dt[kabkot]=cal.getYearCountKabKot(str(int(kabkot[1:3])),str(int(kabkot[3:5])),uridt)
