@@ -137,3 +137,10 @@ Http = 0.0.0.0:8080
 # Chmod-socket = 660
 #vacuum = true |
 | --- |
+
+-
+  - --Die-on-term = true
+  - --Setelah itu, edit file config.py:
+
+| # Cd lib# Vi config.py |
+| --- |
