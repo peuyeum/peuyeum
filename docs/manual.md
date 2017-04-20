@@ -64,6 +64,7 @@ die-on-term = true
 ~~~
 
 Source code tersebut maksudnya ditambahkan sebagai sebuah opsi sehingga uWSGI akan membunuh proses bukan reload yang terjadi, hal ini perlu karena akan terciptanya file Upstart untuk memulai aplikasi saat boot. Upstart dan uWSGI memiliki ide yang berbeda tentangyang sinyal SIGTERM harus lakukan terhadapsebuah aplikasi. Untuk memilah perbedaan ini sehingga proses dapat ditangani seperti yang diharapkan dengan Upstart.<p>
+
 ## peuyeum.py
 ~~~
 #!/usr/bin/env python
@@ -125,11 +126,4 @@ from cgi import parse_qs
 
 source code  tersebut berfungsi untuk memanggil function parse_gs yang terdapat didalam module cgi<p>
 
-~~~
-def application(environ, start_response):
-~~~
-
-Kode diatas merupakan aplikasi WSGI yang lengkap. Secara default, uWSGI akan mencari aplikasi yang callable, oleh karena itu function applicationdi panggil. Seperti pada source code diatas, dibutuhkan dua parameter.<p>
-Yang pertama yaitu environ karena itu akan menjadi variabel all-key seperti nilai lingkungan.<p>
-Yang kedua disebut start_response dan nama aplikasi yang akan digunakan secara internal untuk merujuk ke server web (uWSGI) yang dapat dipanggil. Kedua nama parameter ini dipilih hanya karena penggunaannya dalam contoh di spesifikasi PEP 333 yang Mendefinisikan interaksi WSGI<p>
 
