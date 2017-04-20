@@ -52,3 +52,26 @@ Pada tahap instalasi, kita tentunya harus memenuhi kebutuhan-kebutuhan yang mend
 # pip install pycrypto
 # pip install redis  |
 | --- |
+
+Bagaimana menginstal dan menjalankan program pada centos 6
+
+ Instalasi:
+
+| # Yum groupinstall &quot;Alat Pengembangan&quot;
+# Yum install python 
+# Yum install python-pip python-devel     
+# Pip pasang uwsgi 
+# Pip install pymongo
+# Pip pasang pycrypto 
+# Pip install MySQL-python |
+| --- |
+
+- Instal MySQL  pada runlevel mana yang akan dimulai:
+
+**# Yum install mysql-server**
+
+Kemudian untuk memulai server MySQL:
+
+**# Service mysqld mulai**
+
+Jalankan skrip mysql\_secure\_installation untuk mengatasi beberapa masalah keamanan di instalasi MySQL default.
