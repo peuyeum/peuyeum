@@ -4,8 +4,8 @@ config.py
 set paramater of your server
 """
 ### Menus
-keyuri = "key"
-tokenuri = "token"
+webURI = "key"
+apiURI = "token"
 
 ### Database
 mongohost = "localhost"
