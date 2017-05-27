@@ -9,8 +9,8 @@ import config
 import urllib
 import os
 
-keyuri = config.keyuri
-tokenuri = config.tokenuri
+webURI = config.webURI
+apiURI = config.apiURI
 viewspath="./apps/views/"
 templatepath="./apps/templates/"
 
@@ -36,9 +36,9 @@ def getHtmlForm():
 	return config.html_form
 
 def getMenu(uri):
-	if uri == config.keyuri:
+	if uri == config.webURI:
 		opsi = "key"
-	elif uri == config.tokenuri:
+	elif uri == config.apiURI:
 		opsi = "token"
 	else:
 		opsi = "other"
