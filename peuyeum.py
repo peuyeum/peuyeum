@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 from cgi import parse_qs
-from lib import basreng,cilok,sampeu
+from lib import basreng,cilok,sampeu,config
 
 def application(environ, start_response):
 	## passing environ uwsgi PARAM
@@ -15,7 +15,7 @@ def application(environ, start_response):
 	## Menu Logic
 	url=cilok.urlDecode16(origin[1:])
 	uri=url.split('%')
-	if sampeu.getMenu(uri[0])=="key":
+	if sampeu.getMenu(uri[0])==config.weburi:
 		mod = 'apps.controllers.'+uri[1]
 		func = uri[2]
 		a = __import__(mod,fromlist=['Controller'])
@@ -29,7 +29,7 @@ def application(environ, start_response):
 		hend = sampeu.getHtmlEnd()
 
 		respon = hbegin + result + hend
-	elif sampeu.getMenu(uri[0])=="token":
+	elif sampeu.getMenu(uri[0])==config.apiuri:
 		mod = 'apps.api.'+uri[1]
 		func = uri[2]
 		a = __import__(mod,fromlist=['Api'])
