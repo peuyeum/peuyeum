@@ -13,8 +13,8 @@ import time
 import redis
 from Crypto.Cipher import AES
 
-keyuri = config.keyuri
-tokenuri = config.tokenuri
+webURI = config.webURI
+apiURI = config.apiURI
 	
 	
 def rndm(ln):
@@ -94,9 +94,9 @@ def getHtmlForm(self):
 	return config.html_form
 
 def getMenu(uri):
-	if uri == config.keyuri:
+	if uri == config.webURI:
 		opsi = "key"
-	elif uri == config.tokenuri:
+	elif uri == config.apiURI:
 		opsi = "token"
 	else:
 		opsi = "other"
