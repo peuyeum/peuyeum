@@ -22,7 +22,7 @@ class Api(object):
 		return list_on_html
 	
 	def postLoc(self,getdt='null',postdt='null'):
-		lokasi = postdt.get('loc', [''])[0]
+		lokasi = postdt.get('lokasi', [''])[0]
 		sumber = postdt.get('sumber', [''])[0]
 		peng = pengantar.Pengantar()
 		#uid = getdt
