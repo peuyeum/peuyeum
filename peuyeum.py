@@ -15,7 +15,7 @@ def application(environ, start_response):
 	## Menu Logic
 	url=cilok.urlDecode16(origin[1:])
 	uri=url.split('%')
-	if sampeu.getMenu(uri[0])==config.webURI:
+	if sampeu.getMenu(uri[0])=="website":
 		mod = 'apps.controllers.'+uri[1]
 		func = uri[2]
 		a = __import__(mod,fromlist=['Controller'])
@@ -29,7 +29,7 @@ def application(environ, start_response):
 		hend = sampeu.getHtmlEnd()
 
 		respon = hbegin + result + hend
-	elif sampeu.getMenu(uri[0])==config.apiURI:
+	elif sampeu.getMenu(uri[0])=="API":
 		mod = 'apps.api.'+uri[1]
 		func = uri[2]
 		a = __import__(mod,fromlist=['Api'])

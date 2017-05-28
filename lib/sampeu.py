@@ -37,9 +37,9 @@ def getHtmlForm():
 
 def getMenu(uri):
 	if uri == config.webURI:
-		opsi = "key"
+		opsi = "website"
 	elif uri == config.apiURI:
-		opsi = "token"
+		opsi = "API"
 	else:
 		opsi = "other"
 	return opsi
