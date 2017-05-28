@@ -34,7 +34,8 @@ def application(environ, start_response):
 		func = uri[2]
 		a = __import__(mod,fromlist=['Api'])
 		b = getattr(a,'Api')()
-		respon = getattr(b,func)(uri[3],post)
+		result = getattr(b,func)(uri[3],post)
+		respon = str(result)
 	else:
 		respon = """
 		<html>
@@ -45,6 +46,7 @@ def application(environ, start_response):
 		</body>
 		</html>
 		"""
+		
 	## Passing HTML to client
 	start_response('200 OK', [('Content-Type', 'text/html'),('Content-Length', str(len(respon)))])
 	return [respon]
