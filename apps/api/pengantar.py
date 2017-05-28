@@ -25,5 +25,5 @@ class Api(object):
 		lokasi = postdt.get('loc', [''])[0]
 		sumber = postdt.get('sumber', [''])[0]
 		peng = pengantar.Pengantar()
-		uid = getdt
+		#uid = getdt
 		return peng.setLokasi(sumber,lokasi)

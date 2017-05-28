@@ -1,7 +1,7 @@
-
+import redis
 
 class Pengantar():
-	def __ini__(self):
+	def __init__(self):
 		self.db = redis.Redis()
 		
 	def setLokasi(self,sumber,lokasi):
