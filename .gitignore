@@ -1,3 +1,4 @@
+.cache/
 apps/views/*
 !apps/views/begin.batik
 !apps/views/end.batik

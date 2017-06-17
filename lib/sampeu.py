@@ -5,7 +5,10 @@ sampeu.py
 created by Rolly Maulana Awangga
 
 """
-import config
+import sys
+sys.path.append('../')
+from lib import config
+#import config
 import urllib
 import os
 
