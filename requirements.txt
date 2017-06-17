@@ -1,5 +1,3 @@
 pymongo
 redis
 pycrypto
-redis
-python-MySQLdb
