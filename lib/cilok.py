@@ -5,9 +5,9 @@ cilok.py
 created by Rolly Maulana Awangga
 
 """
-import sys
-sys.path.append('../')
-from lib import config
+#import sys
+#sys.path.append('../')
+import config
 import pymongo
 import urllib
 import random
