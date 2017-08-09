@@ -5,8 +5,6 @@ cilok.py
 created by Rolly Maulana Awangga
 
 """
-#import sys
-#sys.path.append('../')
 import config
 import pymongo
 import urllib
@@ -15,8 +13,8 @@ import time
 import redis
 from Crypto.Cipher import AES
 
-webURI = config.webURI
-apiURI = config.apiURI
+keyuri = config.keyuri
+tokenuri = config.tokenuri
 	
 	
 def rndm(ln):
@@ -96,9 +94,9 @@ def getHtmlForm(self):
 	return config.html_form
 
 def getMenu(uri):
-	if uri == config.webURI:
+	if uri == config.keyuri:
 		opsi = "key"
-	elif uri == config.apiURI:
+	elif uri == config.tokenuri:
 		opsi = "token"
 	else:
 		opsi = "other"

@@ -5,15 +5,12 @@ sampeu.py
 created by Rolly Maulana Awangga
 
 """
-import sys
-sys.path.append('../')
-from lib import config
-#import config
+import config
 import urllib
 import os
 
-webURI = config.webURI
-apiURI = config.apiURI
+keyuri = config.keyuri
+tokenuri = config.tokenuri
 viewspath="./apps/views/"
 templatepath="./apps/templates/"
 
@@ -39,10 +36,10 @@ def getHtmlForm():
 	return config.html_form
 
 def getMenu(uri):
-	if uri == config.webURI:
-		opsi = "website"
-	elif uri == config.apiURI:
-		opsi = "API"
+	if uri == config.keyuri:
+		opsi = "key"
+	elif uri == config.tokenuri:
+		opsi = "token"
 	else:
 		opsi = "other"
 	return opsi

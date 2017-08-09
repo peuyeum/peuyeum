@@ -4,8 +4,8 @@ config.py
 set paramater of your server
 """
 ### Menus
-webURI = "key"
-apiURI = "token"
+keyuri = "key"
+tokenuri = "token"
 
 ### Database
 mongohost = "localhost"
@@ -25,6 +25,6 @@ domainacl = "poltekpos.ac.id"
 urltimeout = 3600
 
 ### mapserver
-WMTS="https://peta.peuyeum.com/wmts/ragi/webmercator/{z}/{x}/{y}.png"
+WMTS="https://map.vas.web.id/wmts/agm/webmercator/{z}/{x}/{y}.png"
 
 

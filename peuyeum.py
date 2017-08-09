@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 from cgi import parse_qs
-from lib import basreng,cilok,sampeu,config
+from lib import basreng,cilok,sampeu
 
 def application(environ, start_response):
 	## passing environ uwsgi PARAM
@@ -15,7 +15,7 @@ def application(environ, start_response):
 	## Menu Logic
 	url=cilok.urlDecode16(origin[1:])
 	uri=url.split('%')
-	if sampeu.getMenu(uri[0])=="website":
+	if sampeu.getMenu(uri[0])=="key":
 		mod = 'apps.controllers.'+uri[1]
 		func = uri[2]
 		a = __import__(mod,fromlist=['Controller'])
@@ -29,13 +29,12 @@ def application(environ, start_response):
 		hend = sampeu.getHtmlEnd()
 
 		respon = hbegin + result + hend
-	elif sampeu.getMenu(uri[0])=="API":
+	elif sampeu.getMenu(uri[0])=="token":
 		mod = 'apps.api.'+uri[1]
 		func = uri[2]
 		a = __import__(mod,fromlist=['Api'])
 		b = getattr(a,'Api')()
-		result = getattr(b,func)(uri[3],post)
-		respon = str(result)
+		respon = getattr(b,func)(uri[3],post)
 	else:
 		respon = """
 		<html>
@@ -46,7 +45,6 @@ def application(environ, start_response):
 		</body>
 		</html>
 		"""
-		
 	## Passing HTML to client
 	start_response('200 OK', [('Content-Type', 'text/html'),('Content-Length', str(len(respon)))])
 	return [respon]

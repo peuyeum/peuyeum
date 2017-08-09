@@ -15,7 +15,9 @@ class Calendar():
 		return str(countline)
 	
 	def getYearCountKabKot(self,id_prov,id_kabkot,year):
-		countline = self.db.execute("select calendardata from oc_clndr_objects where YEAR(startdate) = '"+str(year)+"' AND calendardata like '%LOCATION:"+str(id_prov)+"|"+str(id_kabkot)+"%'")
+		#if int(id_kabkot) < 10:
+		#	id_kabkot = "0"+id_kabkot
+		countline = self.db.execute("select calendardata from oc_clndr_objects where YEAR(startdate) = '"+str(year)+"' AND calendardata like '%LOCATION:"+str(id_prov)+"|"+str(id_kabkot)+"\r\n%'")
 		return str(countline)
 
 	def getCountProv(self,id_prov):
@@ -34,6 +36,10 @@ class Calendar():
 		self.db.execute("select calendardata from oc_clndr_objects where YEAR(startdate) = '"+str(year)+"' AND calendardata like '%LOCATION:"+str(id_prov)+"|"+str(id_kabkot)+"%'")
 		return self.db.fetchall()
 
+	def getDataKabKotByYear(self,id_prov,id_kabkot,year):
+		self.db.execute("select id,startdate,calendardata from oc_clndr_objects where YEAR(startdate) = '"+str(year)+"' AND calendardata like '%LOCATION:"+str(id_prov)+"|"+str(id_kabkot)+"%'")
+		return self.db.fetchall()
+			
 	def getAllDataProv(self,id_prov):
 		self.db.execute("select calendardata from oc_clndr_objects where calendardata like '%LOCATION:"+str(id_prov)+"%'")
 		return self.db.fetchall()

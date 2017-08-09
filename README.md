@@ -1,5 +1,5 @@
-# Peuyeum Framework
-Geospatial Web Application Framework
+# Agenda Presiden
+Aplikasi Peta Agenda Presiden
 
 ## Requirement
  * virtualenv
@@ -142,8 +142,8 @@ If your apps using redis to store TTL Token, please install it to.
 ### How To Use
 #### Cilok : Cryptography URI Locator Key
 ##### URL Format :
- keyuri or tokenuri%controller filename%method inside Controller%paramater
+keyuri or tokenuri%controller filename%method inside Controller%paramater
 ##### Example :
- * For web aplications : WEB%peta%home%2017
- * For API : API%agenda%getList%5101
+For web aplications : WEB%peta%home%2017
+For API : API%agenda%getList%5101
 
