@@ -1,5 +1,5 @@
-# Agenda Presiden
-Aplikasi Peta Agenda Presiden
+# Peuyeum Framework
+Geospatial Python Framework
 
 ## Requirement
  * virtualenv
@@ -7,6 +7,7 @@ Aplikasi Peta Agenda Presiden
  * pymongo
  * pycrypto
  * redis
+ * MySQL-python
 
 ### Instalation
 Centos 6 x86_64_ (still on progress)
@@ -40,6 +41,13 @@ Ubuntu Installation
 # pip install virtualenv
 # pip install uwsgi
 # pip install MySQL-python
+```
+
+Macos Installation
+```sh
+pip uninstall MySQL-python
+brew install mysql
+pip install MySQL-python
 ```
 
 ### Setup
